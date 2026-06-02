@@ -28,4 +28,5 @@ jobs:
       - name: Print issues found
         env:
           ISSUES: "${{ steps.qualibooth.outputs.issues-found }}"
-        run: echo "Accessibility issues found: $ISSUES"
+        run: |
+          echo "Accessibility issues found: $ISSUES"
