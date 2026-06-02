@@ -26,4 +26,4 @@ jobs:
           fail-on-issues: "false"
 
       - name: Print issues found
-        run: echo "Accessibility issues found: ${{ steps.qualibooth.outputs.issues-found }}"
+        run: echo 'Accessibility issues found: ${{ steps.qualibooth.outputs.issues-found }}'
