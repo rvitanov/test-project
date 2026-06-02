@@ -19,13 +19,13 @@ jobs:
         id: qualibooth
         uses: QualiBooth/code-analysis@v1
         with:
-          org-uuid: ${{ secrets.QUALIBOOTH_ORG_UUID }}
-          api-token: ${{ secrets.QUALIBOOTH_API_TOKEN }}
+          org-uuid: "${{ secrets.QUALIBOOTH_ORG_UUID }}"
+          api-token: "${{ secrets.QUALIBOOTH_API_TOKEN }}"
           project-type: react
           scan-paths: src/
           fail-on-issues: "false"
 
       - name: Print issues found
         env:
-          ISSUES: ${{ steps.qualibooth.outputs.issues-found }}
+          ISSUES: "${{ steps.qualibooth.outputs.issues-found }}"
         run: echo "Accessibility issues found: $ISSUES"
