@@ -21,7 +21,7 @@ jobs:
         uses: QualiBooth/code-analysis@main
         with:
           org-uuid: "${{ secrets.QUALIBOOTH_ORG_UUID }}"
-          api-token: "${{ secrets.QUALIBOOTH_API_TOKEN }}"
+          api-url: https://pipelinein.dev.qualibooth.com
           project-type: react
           scan-paths: src/
           fail-on-issues: "false"
