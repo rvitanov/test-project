@@ -16,18 +16,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Run QualiBooth code analysis
-        id: qualibooth
-        uses: QualiBooth/code-analysis@main
-        with:
-          org-uuid: "${{ secrets.QUALIBOOTH_ORG_UUID }}"
-          api-url: https://pipelinein.dev.qualibooth.com
-          project-type: react
-          scan-paths: src/
-          fail-on-issues: "false"
-
-      - name: Print issues found
+      - name: Run QualiBooth Code Analysis
+        uses: docker://ghcr.io/qualibooth/qualibooth-action:v1.0.3
         env:
-          ISSUES: "${{ steps.qualibooth.outputs.issues-found }}"
-        run: |
-          echo "Accessibility issues found: $ISSUES"
+          QUALIBOOTH_ORG_UUID: ${{ secrets.QUALIBOOTH_ORG_UUID }}
+          QUALIBOOTH_REPO: ${{ github.repository }}
+          QUALIBOOTH_SHA: ${{ github.sha }}
+          QUALIBOOTH_BRANCH: ${{ github.ref_name }}
+          QUALIBOOTH_PROJECT_TYPE: react
+          QUALIBOOTH_SCAN_PATHS: src/
+          QUALIBOOTH_FAIL_ON_ISSUES: "false"
+          QUALIBOOTH_API_URL: https://pipelinein.dev.qualibooth.com
