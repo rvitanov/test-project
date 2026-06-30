@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run QualiBooth Code Analysis
-        uses: docker://ghcr.io/qualibooth/qualibooth-action:v1.0.4
+        uses: docker://ghcr.io/qualibooth/qualibooth-action:v1.0.7
         env:
           QUALIBOOTH_ORG_UUID: ${{ secrets.QUALIBOOTH_ORG_UUID }}
           QUALIBOOTH_REPO: ${{ github.repository }}
